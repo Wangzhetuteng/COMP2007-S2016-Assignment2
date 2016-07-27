@@ -12,6 +12,8 @@ namespace COMP2007_S2016_Assignment2
     {
         protected void Application_Start()
         {
+            System.Data.Entity.Database.SetInitializer(
+        new COMP2007_S2016_Assignment2.Models.SampleData());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
