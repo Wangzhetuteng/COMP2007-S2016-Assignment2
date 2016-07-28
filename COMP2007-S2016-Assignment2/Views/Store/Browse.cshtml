@@ -11,7 +11,7 @@
     @foreach (Album album in Model.Albums)
     {
         <li>
-            @album.Title
+            @Html.ActionLink(album.Title, "Details", new { id = album.AlbumId })
         </li>
     }
 </ul>

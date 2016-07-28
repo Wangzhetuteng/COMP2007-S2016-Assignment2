@@ -46,11 +46,9 @@ namespace COMP2007_S2016_Assignment2.Controllers
         }
 
         // POST: StoreManager/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl")] Album album)
+        public async Task<ActionResult> Create(Album album)
         {
             if (ModelState.IsValid)
             {
@@ -82,11 +80,9 @@ namespace COMP2007_S2016_Assignment2.Controllers
         }
 
         // POST: StoreManager/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "AlbumId,GenreId,ArtistId,Title,Price,AlbumArtUrl")] Album album)
+        public async Task<ActionResult> Edit(Album album)
         {
             if (ModelState.IsValid)
             {
