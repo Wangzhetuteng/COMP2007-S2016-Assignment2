@@ -9,117 +9,132 @@ using System.Web;
 using System.Web.Mvc;
 using COMP2007_S2016_Assignment2.Models;
 
+
+/* File Name: COMP2007_S2016_Assignment2
+ * Author: Yandong Wang  200277628
+ * File Description: Create a website that allow customer to view the cuisines.
+ * WebSite Name: Garden Restaurant
+ */
+
 namespace COMP2007_S2016_Assignment2.Controllers
 {
     public class StoreManagerController : Controller
     {
-        private MusicStoreContext db = new MusicStoreContext();
+        private RestaurantStoreContext db = new RestaurantStoreContext();
 
         // GET: StoreManager
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var albums = db.Albums.Include(a => a.Artist).Include(a => a.Genre);
-            return View(await albums.ToListAsync());
+            var submenus = db.SubMenus.Include(a => a.ShortDescription).Include(a => a.FoodType);
+            return View(submenus.ToList());
         }
 
         // GET: StoreManager/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = await db.Albums.FindAsync(id);
-            if (album == null)
+            SubMenu submenu = db.SubMenus.Find(id);
+            if (submenu == null)
             {
                 return HttpNotFound();
             }
-            return View(album);
+            return View(submenu);
         }
+
+
 
         // GET: StoreManager/Create
         public ActionResult Create()
         {
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name");
-            ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name");
+            ViewBag.ShortDescriptionId = new SelectList(db.ShortDescriptions, "ShortDescriptionId", "Flavour");
+            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name");
             return View();
         }
+
 
         // POST: StoreManager/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Album album)
+        public ActionResult Create([Bind(Include = "SubMenuId,FoodTypeId,ShortDescriptionId,Title,Price,SubMenuUrl")] SubMenu submenu)
         {
             if (ModelState.IsValid)
             {
-                db.Albums.Add(album);
-                await db.SaveChangesAsync();
+                db.SubMenus.Add(submenu);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
-            ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
-            return View(album);
+            ViewBag.ShortDescriptionId = new SelectList(db.ShortDescriptions, "ShortDescriptionId", "Flavour", submenu.ShortDescriptionId);
+            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name", submenu.FoodTypeId);
+            return View(submenu);
         }
 
+
         // GET: StoreManager/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = await db.Albums.FindAsync(id);
-            if (album == null)
+            SubMenu submenu = db.SubMenus.Find(id);
+            if (submenu == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
-            ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
-            return View(album);
+            ViewBag.ShortDescriptionId = new SelectList(db.ShortDescriptions, "ShortDescriptionId", "Flavour", submenu.ShortDescriptionId);
+            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name", submenu.SubMenuId);
+            return View(submenu);
         }
 
         // POST: StoreManager/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Album album)
+        public ActionResult Edit([Bind(Include = "SubMenuId,FoodTypeId,ShortDescriptionId,Title,Price,SubMenuUrl")] SubMenu submenu)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(album).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                db.Entry(submenu).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
-            ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
-            return View(album);
+            ViewBag.ShortDescriptionId = new SelectList(db.ShortDescriptions, "ShortDescriptionId", "Flavour", submenu.ShortDescriptionId);
+            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name", submenu.FoodTypeId);
+            return View(submenu);
         }
 
+
+
         // GET: StoreManager/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = await db.Albums.FindAsync(id);
-            if (album == null)
+            SubMenu submenu = db.SubMenus.Find(id);
+            if (submenu == null)
             {
                 return HttpNotFound();
             }
-            return View(album);
+            return View(submenu);
         }
+
+
 
         // POST: StoreManager/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Album album = await db.Albums.FindAsync(id);
-            db.Albums.Remove(album);
-            await db.SaveChangesAsync();
+            SubMenu submenu = db.SubMenus.Find(id);
+            db.SubMenus.Remove(submenu);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

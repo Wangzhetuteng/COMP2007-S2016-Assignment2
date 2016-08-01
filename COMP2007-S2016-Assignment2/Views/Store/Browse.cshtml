@@ -1,17 +1,17 @@
 ﻿@using COMP2007_S2016_Assignment2.Models
-@model Genre
+@model FoodType
 
 @{
     ViewBag.Title = "Browse";
 }
 
-<h2>Browsing Genre: @Model.Name</h2>
+<h2>Browsing Food Type: @Model.Name</h2>
 
 <ul>
-    @foreach (Album album in Model.Albums)
+    @foreach (SubMenu submenu in Model.SubMenus)
     {
         <li>
-            @Html.ActionLink(album.Title, "Details", new { id = album.AlbumId })
+            @Html.ActionLink(submenu.Title, "Details", new { id = submenu.SubMenuId })
         </li>
     }
 </ul>

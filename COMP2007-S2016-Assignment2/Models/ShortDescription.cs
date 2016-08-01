@@ -5,9 +5,10 @@ using System.Web;
 
 namespace COMP2007_S2016_Assignment2.Models
 {
-    public class Artist
+    public class ShortDescription
     {
-        public virtual int ArtistId { get; set; }
-        public virtual string Name { get; set; }
+        public virtual int ShortDescriptionId { get; set; }
+
+        public virtual string Flavour { get; set; }
     }
 }

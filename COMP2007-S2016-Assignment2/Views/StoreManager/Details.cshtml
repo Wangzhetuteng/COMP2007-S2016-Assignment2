@@ -1,4 +1,4 @@
-﻿@model COMP2007_S2016_Assignment2.Models.Album
+﻿@model COMP2007_S2016_Assignment2.Models.SubMenu
 
 @{
     ViewBag.Title = "Details";
@@ -7,23 +7,23 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Album</h4>
+    <h4>Submenu</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Artist.Name)
+            @Html.DisplayNameFor(model => model.FoodType.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Artist.Name)
+            @Html.DisplayFor(model => model.FoodType.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Genre.Name)
+            @Html.DisplayNameFor(model => model.ShortDescription.Flavour)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Genre.Name)
+            @Html.DisplayFor(model => model.ShortDescription.Flavour)
         </dd>
 
         <dt>
@@ -43,16 +43,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AlbumArtUrl)
+            @Html.DisplayNameFor(model => model.SubMenuUrl)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AlbumArtUrl)
+            @Html.DisplayFor(model => model.SubMenuUrl)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AlbumId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SubMenuId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

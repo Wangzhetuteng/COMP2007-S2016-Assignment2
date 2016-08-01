@@ -1,4 +1,10 @@
-﻿*
+﻿/* File Name: COMP2007_S2016_Assignment2
+ * Author: Yandong Wang  200277628
+ * File Description: Create a website that allow customer to view the cuisines.
+ * WebSite Name: Garden Restaurant
+ */
+
+*
 {
 	margin: 0px;
 	padding: 0px;
@@ -28,11 +34,20 @@ body
     display: inline-block;
 }
 
+#header h1
+{
+    font-size: 20px;
+    float: left;
+    background: url(/Assets/images/Logo.jpg) no-repeat;
+    padding: 45px 0px 5px 0px;
+}
+
+
 #promotion
 {
 	height: 300px;
 	width: 700px;
-	background: url(/Assets/images/home-showcase.png) no-repeat;
+	background: url(/Assets/images/logo.jpg) no-repeat;
 }
 
 ul li a

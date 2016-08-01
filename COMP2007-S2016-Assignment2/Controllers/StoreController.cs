@@ -5,39 +5,45 @@ using System.Web;
 using System.Web.Mvc;
 using COMP2007_S2016_Assignment2.Models;
 
+/* File Name: COMP2007_S2016_Assignment2
+ * Author: Yandong Wang  200277628
+ * File Description: Create a website that allow customer to view the cuisines.
+ * WebSite Name: Garden Restaurant
+ */
+
 namespace COMP2007_S2016_Assignment2.Controllers
 {
 
     public class StoreController : Controller
     {
-        MusicStoreContext storeDB = new MusicStoreContext();
+        RestaurantStoreContext storeDB = new RestaurantStoreContext();
         //
         // GET: /Store/
         public ActionResult Index()
         {
-            List<Genre> genres = storeDB.Genres.ToList();
+            List<FoodType> foodtypes = storeDB.FoodTypes.ToList();
 
-            return View(genres);
+            return View(foodtypes);
         }
         //
-        // GET: /Store/Browse?genre=Disco
+        // GET: /Store/Browse?type=Appetizer
 
-        public ActionResult Browse(string genre = "Rock")
+        public ActionResult Browse(string foodtypes = "Appetizer")
         {
-            // Retrieve Genre and its Associated Albums from database
-            Genre genreModel = storeDB.Genres.Include("Albums").Single(g => g.Name == genre);
+            // Retrieve Food Type and its Associated SubMenus from database
+            FoodType foodtypeModel = storeDB.FoodTypes.Include("SubMenus").Single(g => g.Name == foodtypes);
 
-            return View(genreModel);
+            return View(foodtypeModel);
         }
 
         //
         // GET: /Store/Details/5
-        [AllowAnonymous]
+
         public ActionResult Details(int id = 1)
         {
-            Album album = storeDB.Albums.Find(id);
+            SubMenu submenu = storeDB.SubMenus.Find(id);
 
-            return View(album);
+            return View(submenu);
         }
     }
 }

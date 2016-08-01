@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace COMP2007_S2016_Assignment2.Models
 {
-    [Bind(Exclude = "SubMenuId")]
     public class SubMenu
     {
         /// <summary>
@@ -23,23 +22,23 @@ namespace COMP2007_S2016_Assignment2.Models
         /// </summary>
         /// <param name="Title"></param>
         public SubMenu(string Title)
-	    {
+        {
             this.Title = Title;
         }
 
-        [ScaffoldColumn(false)]
+        [Display(Name = "SubMenu")]
         public virtual int SubMenuId { get; set; }
-        [DisplayName("Type")]
-        public virtual int TypeId { get; set; }
 
-
+        [DisplayName("Food Type")]
+        public virtual int FoodTypeId { get; set; }
+        [DisplayName("Short Description")]
+        public virtual int ShortDescriptionId { get; set; }
         public virtual string Title { get; set; }
 
         public virtual decimal Price { get; set; }
         [DisplayName("SubMenu URL")]
-
         public virtual string SubMenuUrl { get; set; }
-        public virtual FoodType Type { get; set; }
-
+        public virtual FoodType FoodType { get; set; }
+        public virtual ShortDescription ShortDescription { get; set; }
     }
 }

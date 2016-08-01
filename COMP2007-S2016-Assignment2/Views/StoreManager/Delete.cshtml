@@ -1,4 +1,4 @@
-﻿@model COMP2007_S2016_Assignment2.Models.Album
+﻿@model COMP2007_S2016_Assignment2.Models.SubMenu
 
 @{
     ViewBag.Title = "Delete";
@@ -8,23 +8,23 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Album</h4>
+    <h4>Submenu</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Artist.Name)
+            @Html.DisplayNameFor(model => model.FoodType.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Artist.Name)
+            @Html.DisplayFor(model => model.FoodType.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Genre.Name)
+            @Html.DisplayNameFor(model => model.ShortDescription.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Genre.Name)
+            @Html.DisplayFor(model => model.ShortDescription.Name)
         </dd>
 
         <dt>
@@ -44,11 +44,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AlbumArtUrl)
+            @Html.DisplayNameFor(model => model.SubMenuUrl)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AlbumArtUrl)
+            @Html.DisplayFor(model => model.SubMenuUrl)
         </dd>
 
     </dl>
