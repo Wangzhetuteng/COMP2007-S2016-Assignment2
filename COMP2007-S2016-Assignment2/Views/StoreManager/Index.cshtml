@@ -1,4 +1,4 @@
-﻿@model IEnumerable<COMP2007_S2016_Assignment2.Models.SubMenu>
+﻿@model IEnumerable<COMP2007_S2016_Assignment2.Models.FoodItem>
 
 @{
     ViewBag.Title = "Index";
@@ -14,9 +14,8 @@
         <th>
             @Html.DisplayNameFor(model => model.FoodType.Name)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShortDescription.Flavour)
-        </th>
+
+
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
@@ -24,7 +23,13 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SubMenuUrl)
+            @Html.DisplayNameFor(model => model.FoodItemUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DetailedDescription)
         </th>
         <th></th>
     </tr>
@@ -34,9 +39,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.FoodType.Name)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortDescription.Flavour)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
@@ -44,12 +47,18 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SubMenuUrl)
+            @Html.DisplayFor(modelItem => item.FoodItemUrl)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SubMenuId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SubMenuId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SubMenuId })
+            @Html.DisplayFor(modelItem => item.ShortDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetailedDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FoodItemId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FoodItemId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FoodItemId })
         </td>
     </tr>
 }

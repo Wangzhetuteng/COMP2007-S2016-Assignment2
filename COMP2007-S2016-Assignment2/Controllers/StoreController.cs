@@ -25,25 +25,38 @@ namespace COMP2007_S2016_Assignment2.Controllers
 
             return View(foodtypes);
         }
+
+
+
+
         //
         // GET: /Store/Browse?type=Appetizer
 
-        public ActionResult Browse(string foodtypes = "Appetizer")
+        public ActionResult Browse(string foodtype = "Appetizer")
         {
             // Retrieve Food Type and its Associated SubMenus from database
-            FoodType foodtypeModel = storeDB.FoodTypes.Include("SubMenus").Single(g => g.Name == foodtypes);
+            FoodType foodtypeModel = storeDB.FoodTypes.Include("FoodItems").Single(g => g.Name == foodtype);
 
             return View(foodtypeModel);
         }
+
+
+
+
 
         //
         // GET: /Store/Details/5
 
         public ActionResult Details(int id = 1)
         {
-            SubMenu submenu = storeDB.SubMenus.Find(id);
+            FoodItem fooditem = storeDB.FoodItems.Find(id);
 
-            return View(submenu);
+            return View(fooditem);
         }
+
+
+
+
+
     }
 }

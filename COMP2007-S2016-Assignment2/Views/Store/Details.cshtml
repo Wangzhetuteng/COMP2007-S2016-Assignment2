@@ -1,20 +1,20 @@
 ﻿@using COMP2007_S2016_Assignment2.Models
-@model SubMenu
+@model FoodItem
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>SubMenu: @Model.Title</h2>
+<h2>FoodItem: @Model.Title</h2>
 <hr />
 <ul>
-    <li>Food Type: @Model.FoodType.Name </li>
-    <li>Short Description: @Model.ShortDescription.Flavour </li>
+    <li>Food Type:  @Model.FoodType.Name </li>
+    <li>Detailed Description: @Model.DetailedDescription </li>
     <li>Price: @Model.Price </li>
     <li>
-        FoodType :
-        <img src="@Model.SubMenuUrl" alt="@Model.Title"/>
+        Large Image :
+        <img src="@Model.FoodItemLargeImageUrl" alt="@Model.Title" width="600" height="400"/>
 
     </li>
 </ul>
-<a href="@Url.Action("Edit","StoreManager", new { id = Model.SubMenuId })" class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>
+<a href="@Url.Action("Edit","StoreManager", new { id = Model.FoodItemId })" class="btn btn-default"><i class="fa fa-pencil"></i> Edit</a>

@@ -1,4 +1,4 @@
-﻿@model COMP2007_S2016_Assignment2.Models.SubMenu
+﻿@model COMP2007_S2016_Assignment2.Models.FoodItem
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Submenu</h4>
+    <h4>FoodItem</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -18,13 +18,7 @@
             @Html.DisplayFor(model => model.FoodType.Name)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ShortDescription.Flavour)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ShortDescription.Flavour)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Title)
@@ -43,16 +37,32 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SubMenuUrl)
+            @Html.DisplayNameFor(model => model.FoodItemUrl)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SubMenuUrl)
+            @Html.DisplayFor(model => model.FoodItemUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailedDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailedDescription)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SubMenuId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FoodItemId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

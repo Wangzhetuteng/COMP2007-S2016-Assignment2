@@ -9,24 +9,18 @@ using System.Web;
 using System.Web.Mvc;
 using COMP2007_S2016_Assignment2.Models;
 
-
-/* File Name: COMP2007_S2016_Assignment2
- * Author: Yandong Wang  200277628
- * File Description: Create a website that allow customer to view the cuisines.
- * WebSite Name: Garden Restaurant
- */
-
 namespace COMP2007_S2016_Assignment2.Controllers
 {
     public class StoreManagerController : Controller
     {
         private RestaurantStoreContext db = new RestaurantStoreContext();
 
+
         // GET: StoreManager
         public ActionResult Index()
         {
-            var submenus = db.SubMenus.Include(a => a.ShortDescription).Include(a => a.FoodType);
-            return View(submenus.ToList());
+            var fooditems = db.FoodItems.Include(a => a.FoodType);
+            return View(fooditems.ToList());
         }
 
         // GET: StoreManager/Details/5
@@ -36,40 +30,46 @@ namespace COMP2007_S2016_Assignment2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SubMenu submenu = db.SubMenus.Find(id);
-            if (submenu == null)
+            FoodItem fooditem = db.FoodItems.Find(id);
+            if (fooditem == null)
             {
                 return HttpNotFound();
             }
-            return View(submenu);
+            return View(fooditem);
         }
-
 
 
         // GET: StoreManager/Create
         public ActionResult Create()
         {
-            ViewBag.ShortDescriptionId = new SelectList(db.ShortDescriptions, "ShortDescriptionId", "Flavour");
+
             ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name");
             return View();
         }
 
 
         // POST: StoreManager/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SubMenuId,FoodTypeId,ShortDescriptionId,Title,Price,SubMenuUrl")] SubMenu submenu)
+        public ActionResult Create([Bind(Include = "FoodItems,FoodTypeId,ShortDescriptionId,DetailedDescriptionId,Title,Price,FoodItemUrl,ShortDescription,DetailedDescription")] FoodItem fooditem)
         {
             if (ModelState.IsValid)
             {
-                db.SubMenus.Add(submenu);
+                db.FoodItems.Add(fooditem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ShortDescriptionId = new SelectList(db.ShortDescriptions, "ShortDescriptionId", "Flavour", submenu.ShortDescriptionId);
-            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name", submenu.FoodTypeId);
-            return View(submenu);
+
+
+            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name", fooditem.FoodTypeId);
+            return View(fooditem);
         }
+
+
+
+
 
 
         // GET: StoreManager/Edit/5
@@ -79,31 +79,45 @@ namespace COMP2007_S2016_Assignment2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SubMenu submenu = db.SubMenus.Find(id);
-            if (submenu == null)
+            FoodItem fooditem = db.FoodItems.Find(id);
+            if (fooditem == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ShortDescriptionId = new SelectList(db.ShortDescriptions, "ShortDescriptionId", "Flavour", submenu.ShortDescriptionId);
-            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name", submenu.SubMenuId);
-            return View(submenu);
+
+            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name", fooditem.FoodTypeId);
+            return View(fooditem);
         }
 
+
+
         // POST: StoreManager/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SubMenuId,FoodTypeId,ShortDescriptionId,Title,Price,SubMenuUrl")] SubMenu submenu)
+        public ActionResult Edit([Bind(Include = "FoodItemId,FoodTypeId,ShortDescriptionId,DetailedDescriptionId,Title,Price,FoodItemUrl,ShortDescription,DetailedDescription")] FoodItem fooditem)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(submenu).State = EntityState.Modified;
+                db.Entry(fooditem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ShortDescriptionId = new SelectList(db.ShortDescriptions, "ShortDescriptionId", "Flavour", submenu.ShortDescriptionId);
-            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name", submenu.FoodTypeId);
-            return View(submenu);
+            ViewBag.FoodTypeId = new SelectList(db.FoodTypes, "FoodTypeId", "Name", fooditem.FoodTypeId);
+
+            return View(fooditem);
         }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -114,13 +128,17 @@ namespace COMP2007_S2016_Assignment2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SubMenu submenu = db.SubMenus.Find(id);
-            if (submenu == null)
+            FoodItem fooditem = db.FoodItems.Find(id);
+            if (fooditem == null)
             {
                 return HttpNotFound();
             }
-            return View(submenu);
+            return View(fooditem);
         }
+
+
+
+
 
 
 
@@ -129,11 +147,13 @@ namespace COMP2007_S2016_Assignment2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SubMenu submenu = db.SubMenus.Find(id);
-            db.SubMenus.Remove(submenu);
+            FoodItem fooditem = db.FoodItems.Find(id);
+            db.FoodItems.Remove(fooditem);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
 
 
         protected override void Dispose(bool disposing)

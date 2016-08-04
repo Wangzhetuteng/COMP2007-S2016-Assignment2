@@ -12,11 +12,7 @@ namespace COMP2007_S2016_Assignment2.Models
         {
         }
 
-
-        public virtual DbSet<SubMenu> SubMenus { get; set; }
-
         public virtual DbSet<FoodType> FoodTypes { get; set; }
-
-        public virtual DbSet<ShortDescription> ShortDescriptions { get; set; }
+        public virtual DbSet<FoodItem> FoodItems { get; set; }
     }
 }

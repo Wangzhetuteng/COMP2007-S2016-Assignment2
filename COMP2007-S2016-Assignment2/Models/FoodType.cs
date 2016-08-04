@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -25,7 +26,11 @@ namespace COMP2007_S2016_Assignment2.Models
         }
 
         public virtual int FoodTypeId { get; set; }
+
+        [Display(Name = "Food Type")]
         public virtual string Name { get; set; }
-        public virtual List<SubMenu> SubMenus { get; set; }
+        public virtual List<FoodItem> FoodItems { get; set; }
+
+
     }
 }

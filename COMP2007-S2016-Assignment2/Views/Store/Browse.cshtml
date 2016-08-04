@@ -7,11 +7,25 @@
 
 <h2>Browsing Food Type: @Model.Name</h2>
 
-<ul>
-    @foreach (SubMenu submenu in Model.SubMenus)
-    {
-        <li>
-            @Html.ActionLink(submenu.Title, "Details", new { id = submenu.SubMenuId })
-        </li>
-    }
-</ul>
+<div class="row">
+    <ul>
+        @foreach (FoodItem fooditem in Model.FoodItems)
+        {
+            <div class="col-sm-3 col-md-3">
+
+
+                <div class="img">
+                    <a target="_top" href="">
+                        <img src="@fooditem.FoodItemThumbnailImageUrl" alt="@fooditem.Title" width="250" height="200" />
+                    </a>
+                    <div class="desc">@fooditem.ShortDescription</div>
+                    <h5>@Html.ActionLink(fooditem.Title, "Details", new { id = fooditem.FoodItemId })</h5>
+                    <p>$@fooditem.Price</p>
+
+                </div>
+
+            </div>
+        }
+    </ul>
+</div>
+

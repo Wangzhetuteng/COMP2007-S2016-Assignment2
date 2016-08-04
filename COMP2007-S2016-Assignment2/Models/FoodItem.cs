@@ -8,12 +8,12 @@ using System.Web.Mvc;
 
 namespace COMP2007_S2016_Assignment2.Models
 {
-    public class SubMenu
+    public class FoodItem
     {
         /// <summary>
         /// This is the empty constructor
         /// </summary>
-        public SubMenu()
+        public FoodItem()
         {
 
         }
@@ -21,24 +21,33 @@ namespace COMP2007_S2016_Assignment2.Models
         /// This constructor takes one parameter - Title
         /// </summary>
         /// <param name="Title"></param>
-        public SubMenu(string Title)
+        public FoodItem(string Title)
         {
             this.Title = Title;
         }
 
-        [Display(Name = "SubMenu")]
-        public virtual int SubMenuId { get; set; }
+        [Display(Name = "Food Item")]
+        public virtual int FoodItemId { get; set; }
 
         [DisplayName("Food Type")]
         public virtual int FoodTypeId { get; set; }
         [DisplayName("Short Description")]
         public virtual int ShortDescriptionId { get; set; }
+        [DisplayName("Detailed Description")]
+        public virtual int DetailedDescriptionId { get; set; }
         public virtual string Title { get; set; }
 
         public virtual decimal Price { get; set; }
-        [DisplayName("SubMenu URL")]
-        public virtual string SubMenuUrl { get; set; }
+        [DisplayName("Food Item Thumbnail URL")]
+        public virtual string FoodItemThumbnailImageUrl { get; set; }
+
+
+        [DisplayName("Food Item Large Image URL")]
+        public virtual string FoodItemLargeImageUrl { get; set; }
+
         public virtual FoodType FoodType { get; set; }
-        public virtual ShortDescription ShortDescription { get; set; }
+
+        public virtual string ShortDescription { get; set; }
+        public virtual string DetailedDescription { get; set; }
     }
 }
