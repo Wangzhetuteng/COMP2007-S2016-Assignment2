@@ -220,6 +220,8 @@
     <Content Include="Assets\Images\Restaurant2.jpg" />
     <Content Include="Assets\Images\Restaurant3.jpg" />
     <Content Include="Assets\Images\Restaurant4.jpg" />
+    <Content Include="Assets\Images\Restaurant5.jpg" />
+    <Content Include="Assets\Images\Restaurant6.jpg" />
     <Content Include="Assets\Images\Salt&amp;SpicyRibsLarge.jpg" />
     <Content Include="Assets\Images\Salt&amp;SpicyRibsThumbnail.jpg" />
     <Content Include="Assets\Images\ShanghaiNoodleLarge.jpg" />
