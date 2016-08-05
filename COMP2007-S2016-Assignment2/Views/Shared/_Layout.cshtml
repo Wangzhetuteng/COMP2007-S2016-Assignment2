@@ -18,13 +18,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="@Url.Action("Index", "Home")" class="navbar-brand"><img id="brand" alt="Brand"
-                src="~/Assets/images/Logo.jpe" width="60" height="40"> Restaurant Store</a>
+                src="~/Assets/images/Logo.jpg" width="60" height="40">Hai Di Lao Hot Pot</a>
             </div>
             <div class="navbar-collapse collapse">
                 @Html.Partial("_LoginPartial")
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Menu", "Index", "Menu")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -33,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Hai Di Lao Hot Pot Ltd.</p>
         </footer>
     </div>
 
@@ -42,3 +43,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

@@ -17,6 +17,15 @@ body
 	font-size: 14px;
 	background-color: #FBF9EF;
 	padding: 60px 6% 0px 6%;
+
+}
+
+
+.body-content .bg {
+    background: url(/Assets/images/Restaurant1.jpg) no-repeat center center fixed;
+    height:600px;
+
+    background-size: cover;
 }
 
 #container

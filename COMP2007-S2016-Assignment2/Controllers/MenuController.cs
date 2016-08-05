@@ -8,7 +8,7 @@ using COMP2007_S2016_Assignment2.Models;
 /* File Name: COMP2007_S2016_Assignment2
  * Author: Yandong Wang  200277628
  * File Description: Create a website that allow customer to view the cuisines.
- * WebSite Name: Garden Restaurant
+ * WebSite Name: Diao Chan Restaurant
  */
 
 namespace COMP2007_S2016_Assignment2.Controllers
@@ -30,7 +30,7 @@ namespace COMP2007_S2016_Assignment2.Controllers
 
 
         //
-        // GET: /Store/Browse?type=Appetizer
+        // GET: /Menu/Browse?type=Appetizer
 
         public ActionResult Browse(string foodtype = "Appetizer")
         {

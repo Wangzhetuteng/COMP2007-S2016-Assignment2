@@ -16,14 +16,14 @@ namespace COMP2007_S2016_Assignment2.Controllers
         private RestaurantStoreContext db = new RestaurantStoreContext();
 
 
-        // GET: StoreManager
+        // GET: MenuManager
         public ActionResult Index()
         {
             var fooditems = db.FoodItems.Include(a => a.FoodType);
             return View(fooditems.ToList());
         }
 
-        // GET: StoreManager/Details/5
+        // GET: MenuManager/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,7 +39,7 @@ namespace COMP2007_S2016_Assignment2.Controllers
         }
 
 
-        // GET: StoreManager/Create
+        // GET: MenuManager/Create
         public ActionResult Create()
         {
 

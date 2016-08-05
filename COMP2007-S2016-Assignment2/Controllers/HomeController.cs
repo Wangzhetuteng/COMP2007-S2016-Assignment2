@@ -14,5 +14,11 @@ namespace COMP2007_S2016_Assignment2.Controllers
         {
             return View();
         }
+
+        // GET: /Contact/
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
 }

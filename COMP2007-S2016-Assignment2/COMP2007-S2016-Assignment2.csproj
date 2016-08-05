@@ -208,7 +208,7 @@
     <Content Include="Assets\Images\JumboShrimpsThumbnail.jpg" />
     <Content Include="Assets\Images\KungPaoChickenThumbnail.jpg" />
     <Content Include="Assets\Images\KungPaoChikenLarge.jpeg" />
-    <Content Include="Assets\Images\Logo.jpe" />
+    <Content Include="Assets\Images\Location.png" />
     <Content Include="Assets\Images\Logo.jpg" />
     <Content Include="Assets\Images\MaPoToFuLarge.jpg" />
     <Content Include="Assets\Images\MaPoToFuThumbnail.jpg" />
@@ -216,6 +216,10 @@
     <Content Include="Assets\Images\MooShuBeefThumbnail.jpg" />
     <Content Include="Assets\Images\MuShuVegetablesLarge.jpg" />
     <Content Include="Assets\Images\MuShuVegetablesThumbnail.jpg" />
+    <Content Include="Assets\Images\Restaurant1.jpg" />
+    <Content Include="Assets\Images\Restaurant2.jpg" />
+    <Content Include="Assets\Images\Restaurant3.jpg" />
+    <Content Include="Assets\Images\Restaurant4.jpg" />
     <Content Include="Assets\Images\Salt&amp;SpicyRibsLarge.jpg" />
     <Content Include="Assets\Images\Salt&amp;SpicyRibsThumbnail.jpg" />
     <Content Include="Assets\Images\ShanghaiNoodleLarge.jpg" />
@@ -316,6 +320,7 @@
     <Content Include="Views\FoodTypes\Details.cshtml" />
     <Content Include="Views\FoodTypes\Edit.cshtml" />
     <Content Include="Views\FoodTypes\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
