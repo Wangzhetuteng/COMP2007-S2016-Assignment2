@@ -14,11 +14,11 @@ using COMP2007_S2016_Assignment2.Models;
 namespace COMP2007_S2016_Assignment2.Controllers
 {
 
-    public class StoreController : Controller
+    public class MenuController : Controller
     {
         RestaurantStoreContext storeDB = new RestaurantStoreContext();
         //
-        // GET: /Store/
+        // GET: /Menu/
         public ActionResult Index()
         {
             List<FoodType> foodtypes = storeDB.FoodTypes.ToList();
@@ -34,7 +34,7 @@ namespace COMP2007_S2016_Assignment2.Controllers
 
         public ActionResult Browse(string foodtype = "Appetizer")
         {
-            // Retrieve Food Type and its Associated SubMenus from database
+            // Retrieve Food Type and its Associated Food Items from database
             FoodType foodtypeModel = storeDB.FoodTypes.Include("FoodItems").Single(g => g.Name == foodtype);
 
             return View(foodtypeModel);
